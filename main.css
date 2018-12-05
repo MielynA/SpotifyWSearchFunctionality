@@ -22,11 +22,21 @@ html, body {
     background-color: #348563;
   }
 
-  .form-control {
-    width: 40%;
-    padding: 20px;
-  }
-  
   .jumbotron-fluid {
     padding-bottom: 0;
   }
+  .rounded {
+    width: 50px; 
+    height: 50px;
+  }
+
+input[type=text] {
+    width: 30%;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    padding: 20px;
+}
+
+input[type=text]:focus {
+    width: 100%;
+}

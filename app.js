@@ -1,3 +1,4 @@
+// --- STATE (PLAYLIST) --- 
 const playlist = {
     name: 'United States Top Chart',
     description: 'The top songs in the US right now.',
@@ -65,13 +66,24 @@ const playlist = {
             name: 'All I Want for Christmas Is You',
             artists: ['Mariah Carey'],
             image: 'https://i.scdn.co/image/770180da03a8e23ac5ff7847496e9538cf73ce85'
+        },
+        {
+            name: '1-800-273-8255',
+            artists: ['Alessia Cara,Khalid'],
+            image: 'https://i.scdn.co/image/770180da03a8e23ac5ff7847496e9538cf73ce85'
+        },
+        {
+            name: '$$$$-273-8255',
+            artists: ['Mielyn'],
+            image: 'https://i.scdn.co/image/770180da03a8e23ac5ff7847496e9538cf73ce85'
         }
     ]
 };
+//---- GET THE OBJ HTML AND TAGS ----
 const getObjHtml = (song) => {
     return `<div class='row mb-2'>
     <div class='col-1'>
-      <img src="${song.image}" class="rounded" style='width: 50px; height: 50px;'>
+      <img src="${song.image}" class="rounded">
     </div>
     <div class='col-11'>
       <p class='mb-0 mt-1 song-name'>${song.name}</p>
@@ -79,7 +91,7 @@ const getObjHtml = (song) => {
     </div>
   </div>`;
 }
-// ----RENDER -----
+// ---- RENDER -----
 const render = playlist => {
     title.innerText = playlist.name;
     dsc.innerText = playlist.description;
@@ -89,11 +101,11 @@ const render = playlist => {
     }
     song_list.innerHTML = combinedHTML;
 }
-//----GLOBAL HTML OBJECTS -----
+//---- GLOBAL HTML OBJECTS -----
 const title = document.querySelector('h1');
 const dsc = document.querySelector('.lead');
 const song_list = document.querySelector('.song-list');
-const displaySearch = document.querySelector('.js-searchbar')
+const displaySearch = document.querySelector('.js-searchbar');
 
 render(playlist);
 
@@ -109,8 +121,8 @@ displaySearch.addEventListener('keyup', () => {
         const song = playlist.songs[i].name;
         if (song.toLowerCase().includes(displaySearch.value.toLowerCase())) {
             searched.push(playlist.songs[i]);
-        }
-        newplaylist.songs = searched;
+        }  
     }
+    newplaylist.songs = searched;
     render(newplaylist);
 });
