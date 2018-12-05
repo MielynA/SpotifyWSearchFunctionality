@@ -81,8 +81,8 @@ const getObjHtml = (song) => {
 }
 // ----RENDER -----
 const render = playlist => {
-   title.innerText = playlist.name;
-   dsc.innerText = playlist.description;
+    title.innerText = playlist.name;
+    dsc.innerText = playlist.description;
     let combinedHTML = '';
     for (let i = 0; i < playlist.songs.length; i++) {
         combinedHTML += getObjHtml(playlist.songs[i]);
@@ -105,13 +105,10 @@ displaySearch.addEventListener('keyup', () => {
         description: playlist.description,
     }
     let searched = [];
-    const searchBar = document.querySelector('.js-searchbar').value.toLowerCase();
-
     for (let i = 0; i < playlist.songs.length; i++) {
         const song = playlist.songs[i].name;
-        if (song.toLowerCase().includes(searchBar)) {
+        if (song.toLowerCase().includes(displaySearch.value.toLowerCase())) {
             searched.push(playlist.songs[i]);
-           
         }
         newplaylist.songs = searched;
     }

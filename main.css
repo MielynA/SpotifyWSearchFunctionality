@@ -25,5 +25,8 @@ html, body {
   .form-control {
     width: 40%;
     padding: 20px;
-   
+  }
+  
+  .jumbotron-fluid {
+    padding-bottom: 0;
   }
